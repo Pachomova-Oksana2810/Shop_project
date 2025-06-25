@@ -11,13 +11,12 @@ POJO (Plain Old Java Object) — это обычный Java-объект, кот
  публичными. POJO обычно используется для инкапсуляции бизнес-логики в приложениях
  */
 public class Customer {
-    private final Long id;
+    private  Long id;
     private boolean isActive;
     private String name;
     private final List<Product> products = new ArrayList<>();
 
-    public Customer(Long id,  boolean isActive, String name) {
-        this.id = id;
+    public Customer( boolean isActive, String name) {
         this.isActive = isActive;
         this.name = name;
     }
@@ -44,6 +43,10 @@ public class Customer {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
