@@ -13,7 +13,7 @@ public class CustomerRepositoryMap implements CustomerRepository{
     private long currentId = 0;
 
     @Override
-    public Customer seve(Customer customer) {
+    public Customer save(Customer customer) {
         customer.setId(++currentId);
         database.put(currentId, customer);
         return customer;
@@ -34,22 +34,22 @@ public class CustomerRepositoryMap implements CustomerRepository{
         Long id = customer.getId();
         String newName = customer.getName();
 
-        Customer oldProduct = findById(id);
+        Customer oldCustomer = findById(id);
 
-        if (oldProduct != null){
-            oldProduct.setName(newName);
+        if (oldCustomer != null){
+            oldCustomer.setName(newName);
         }
-        return oldProduct;
+        return oldCustomer;
     }
 
     @Override
     public boolean deleteById(Long id) {
-        Customer oldProduct = findById(id);
+        Customer oldCustomer = findById(id);
 
-        if (oldProduct == null){
-            ;return false;
+        if (oldCustomer == null){
+            return false;
         }
-        oldProduct.setActive(false);
+        oldCustomer.setActive(false);
         return true;
     }
 }

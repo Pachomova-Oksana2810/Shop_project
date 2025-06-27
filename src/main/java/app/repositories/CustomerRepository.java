@@ -6,11 +6,14 @@ import java.util.List;
 
 public interface CustomerRepository {
 
-    Customer seve(Customer customer);
+    Customer save(Customer customer);
     List<Customer> findAll();
     Customer findById(Long id);
 
     Customer update(Customer customer);
 
     boolean deleteById(Long id);
+
+
+
 }
